@@ -49,7 +49,18 @@ class LinkedList {
     return current
   }
   
-  //pop()
+  pop() {
+    if (this.first === null) return;
+    let prev;
+    let current = this.first;
+
+    while (current.nextNode !== null) {
+      prev = current;
+      current = current.nextNode;
+    }
+    prev.nextNode = null;
+  }
+
   //contains(value)
   //find(value)
   //toString()
@@ -73,4 +84,5 @@ console.log(ll.first.nextNode);
 console.log(ll.first.nextNode.nextNode);
 console.log(ll.size());
 console.log('tail:',ll.tail());
-console.log(ll.at(2));
+console.log('pop:',ll.pop());
+console.log('tail:',ll.tail());
