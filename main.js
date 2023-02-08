@@ -61,7 +61,17 @@ class LinkedList {
     prev.nextNode = null;
   }
 
-  //contains(value)
+  contains(value) {
+    if (this.first === null) return false;
+    let current = this.first;
+
+    while (current !== null) {
+      if (current.value === value) return true
+      current = current.nextNode;
+    }
+    return false;
+  }
+
   //find(value)
   //toString()
 }
@@ -86,3 +96,4 @@ console.log(ll.size());
 console.log('tail:',ll.tail());
 console.log('pop:',ll.pop());
 console.log('tail:',ll.tail());
+console.log(ll.contains('aaaaaaa'));
