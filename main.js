@@ -72,8 +72,29 @@ class LinkedList {
     return false;
   }
 
-  //find(value)
-  //toString()
+  find(value) {
+    if (this.first === null) return null;
+    let current = this.first;
+    let i = 0;
+    while (current !== null) {
+      if (current.value === value) return i;
+      current = current.nextNode;
+      i++
+    }
+    return null;
+  }
+  
+  toString() {
+    if (this.first === null) return "null";
+    let str = "";
+    let current = this.first;
+    while (current !== null) {
+      str += `( ${current.value} ) -> `;
+      if (current.nextNode === null) str += "null";
+      current = current.nextNode;
+    }
+    return str;
+  }
 }
 
 class Node {
@@ -94,6 +115,5 @@ console.log(ll.first.nextNode);
 console.log(ll.first.nextNode.nextNode);
 console.log(ll.size());
 console.log('tail:',ll.tail());
-console.log('pop:',ll.pop());
-console.log('tail:',ll.tail());
-console.log(ll.contains('aaaaaaa'));
+console.log(ll.find('bbbbb'));
+console.log(ll.toString());
