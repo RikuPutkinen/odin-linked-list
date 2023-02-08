@@ -38,7 +38,17 @@ class LinkedList {
     return current;
   }
 
-  //at(index)
+  at(index) {
+    if (this.first === null) return;
+    if (this.size() < index) return;
+    let current = this.first;
+
+    for (let i = 0; i < index; i++) {
+      current = current.nextNode;
+    }
+    return current
+  }
+  
   //pop()
   //contains(value)
   //find(value)
@@ -63,3 +73,4 @@ console.log(ll.first.nextNode);
 console.log(ll.first.nextNode.nextNode);
 console.log(ll.size());
 console.log('tail:',ll.tail());
+console.log(ll.at(2));
