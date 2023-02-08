@@ -112,7 +112,20 @@ class LinkedList {
     newNode.nextNode = current;
   }
 
-  //removeAt(index)
+  removeAt(index) {
+    if (this.first === null) return;
+    if (index < 0 || index > this.size()) return;
+
+    let prev;
+    let current = this.first;
+
+    for (let i = 0; i < index; i++) {
+      prev = current;
+      current = current.nextNode;
+    }
+
+    prev.nextNode = current.nextNode;
+  }
 }
 
 class Node {
@@ -129,4 +142,6 @@ ll.append('bbbbb');
 ll.prepend('cccccc');
 console.log(ll.toString());
 ll.insertAt('dddd', 2);
+console.log(ll.toString());
+ll.removeAt(1);
 console.log(ll.toString());
