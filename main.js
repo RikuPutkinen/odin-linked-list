@@ -95,6 +95,24 @@ class LinkedList {
     }
     return str;
   }
+
+  insertAt(value, index) {
+    if (this.first === null) return;
+    if (index < 0 || index > this.size()) return;
+
+    let prev;
+    let current = this.first;
+
+    for (let i = 0; i < index; i++) {
+      prev = current;
+      current = current.nextNode;
+    }
+    const newNode = new Node(value);
+    prev.nextNode = newNode;
+    newNode.nextNode = current;
+  }
+
+  //removeAt(index)
 }
 
 class Node {
@@ -109,11 +127,6 @@ const ll = new LinkedList();
 ll.append('aaaaaa');
 ll.append('bbbbb');
 ll.prepend('cccccc');
-console.log(ll);
-console.log(ll.head());
-console.log(ll.first.nextNode);
-console.log(ll.first.nextNode.nextNode);
-console.log(ll.size());
-console.log('tail:',ll.tail());
-console.log(ll.find('bbbbb'));
+console.log(ll.toString());
+ll.insertAt('dddd', 2);
 console.log(ll.toString());
